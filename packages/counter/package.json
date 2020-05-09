@@ -20,5 +20,5 @@
     "test": "react-scripts test",
     "test:cicd": "cross-env CI=true react-scripts test --env=jsdom-fourteen --coverage"
   },
-  "gitHead": "fd7aac14c5419b5f4dfb7c5a60bf77e25214f443"
+  "gitHead": "936cc94989600627544d57cabd185c0d525b2f66"
 }
