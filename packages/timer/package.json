@@ -1,0 +1,24 @@
+{
+  "name": "@ketchup/counter",
+  "version": "0.0.0",
+  "description": "A counter interface for hurried tomatoes",
+  "license": "UNLICENSED",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/index",
+  "files": [
+    "dist/*",
+    "README.md"
+  ],
+  "scripts": {
+    "build:cjs": "tsc -p ./tsconfig/tsconfig.cjs.json",
+    "build:declaration": "tsc -p ./tsconfig/tsconfig.json --emitDeclarationOnly",
+    "build:esm": "tsc -p ./tsconfig/tsconfig.esm.json",
+    "build": "yarn build:cjs && yarn build:esm && yarn build:declaration",
+    "prebuild": "rimraf dist && yarn test:cicd",
+    "prepare": "yarn build",
+    "prepublishOnly": "yarn build:publish",
+    "test": "react-scripts test",
+    "test:cicd": "cross-env CI=true react-scripts test --env=jsdom-fourteen --coverage"
+  }
+}
