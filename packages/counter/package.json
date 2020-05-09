@@ -1,6 +1,6 @@
 {
   "name": "@ketchupy/counter",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A counter interface for hurried tomatoes",
   "license": "UNLICENSED",
   "main": "dist/cjs/index.js",
