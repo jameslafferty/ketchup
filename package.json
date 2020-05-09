@@ -1,5 +1,5 @@
 {
-  "name": "@ketchup/kitchen-sink",
+  "name": "@ketchupy/kitchen-sink",
   "version": "0.0.0",
   "description": "Utilities for tomatoes in a hurry.",
   "main": "index.js",
