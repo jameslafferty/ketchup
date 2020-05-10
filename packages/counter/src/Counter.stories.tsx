@@ -1,23 +1,17 @@
+import { select } from '@storybook/addon-knobs';
 import React from 'react';
 import { Counter } from './Counter';
-import { select } from '@storybook/addon-knobs';
+import { countDownBySeconds } from './utilities/countDownBySeconds';
+import { countUpBySeconds } from './utilities/countUpBySeconds';
 
 export default {
   title: 'Counter',
   component: Counter,
 };
 
-const timeout = (delayInMilliseconds: number) => new Promise((resolve) => setTimeout(resolve, delayInMilliseconds));
-
 const CounterFunctions: Record<string, (last: number) => Promise<number>> = {
-  COUNT_DOWN_BY_SECONDS: async (last: number) => {
-    await timeout(1000);
-    return last -= 1;
-  },
-  COUNT_UP_BY_SECONDS: async (last: number) => {
-    await timeout(1000);
-    return last += 1;
-  },
+  COUNT_DOWN_BY_SECONDS: countDownBySeconds,
+  COUNT_UP_BY_SECONDS: countUpBySeconds,
 }
 
 export const countdown = () => {
