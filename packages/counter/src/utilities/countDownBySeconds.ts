@@ -1,6 +1,3 @@
-import { timeout } from './timeout';
+import { countDown } from './countDown';
 
-export const countDownBySeconds = async (last: number) => {
-  await timeout(1000);
-  return last -= 1000;
-};
+export const countDownBySeconds = async (last: number) => await countDown(last, 's');

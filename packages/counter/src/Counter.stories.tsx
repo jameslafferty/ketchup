@@ -1,4 +1,3 @@
-import { select } from '@storybook/addon-knobs';
 import React from 'react';
 import { Counter } from './Counter';
 import { countDownBySeconds } from './utilities/countDownBySeconds';
@@ -14,15 +13,27 @@ const CounterFunctions: Record<string, (last: number) => Promise<number>> = {
   COUNT_UP_BY_SECONDS: countUpBySeconds,
 }
 
-export const countdown = () => {
-  const counter = select('counter functions', {
-    'count down by seconds': 'COUNT_DOWN_BY_SECONDS',
-    'count up by seconds': 'COUNT_UP_BY_SECONDS',
-  }, 'COUNT_DOWN_BY_SECONDS');
+export const countdown = ({counter = 'COUNT_DOWN_BY_SECONDS', isPaused = false, lowerLimit = 0, precision = 'ms', startCount = 25, upperLimit = 360000 }) => {
   return (
     <Counter
-      startCount={25}
       doCount={CounterFunctions[counter]}
+      isPaused={isPaused}
+      precision={precision  as 'ms' | 's' | 'm' | 'h' | undefined}
+      startCount={startCount}
+      upperLimit={upperLimit}
     />
   );
+};
+
+countdown.argTypes = {
+  counter: {
+    control: {
+      type: 'select',
+      options: [
+        'COUNT_UP_BY_SECONDS',
+        'COUNT_DOWN_BY_SECONDS',
+      ],
+      default: 'COUNT_DOWN_BY_SECONDS',
+    },
+  },
 };
