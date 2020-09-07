@@ -1,8 +1,11 @@
-import { act, render } from '@testing-library/react';
+import { render } from '@testing-library/react';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import React from 'react';
 import { Counter } from './Counter';
 
-it('renders a timer', async () => {
+expect.extend(toHaveNoViolations);
+
+it('renders a Counter with the correct value', async () => {
   const doCount = async (number: number) => number;
   const { getByTestId } = render(
   <Counter
@@ -10,6 +13,13 @@ it('renders a timer', async () => {
     startCount={25}
   />
   );
-  const timer = getByTestId('timer');
-  expect(timer).toBeTruthy();
+  const counter = getByTestId('Counter');
+  expect(counter).toBeTruthy();
+  expect(counter.textContent).toBe('00250');
+});
+
+it('has no obvious a11y violations', async () => {
+  const { getByTestId } = render(<Counter />);
+  const counter = getByTestId('Counter');
+  expect(await axe(counter.outerHTML)).toHaveNoViolations();
 });

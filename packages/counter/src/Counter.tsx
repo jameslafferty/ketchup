@@ -1,7 +1,7 @@
 import React from 'react';
 import { CounterProvider, CounterProviderProps } from './CounterProvider';
 import { DigitalReadout } from './DigitalReadout';
-import { TimeIncrement } from './TimeIncrement';
+import { TimeIncrement } from './types/TimeIncrement';
 import { countDownBySeconds } from './utilities/countDownBySeconds';
 
 export interface CounterProps {
@@ -9,13 +9,15 @@ export interface CounterProps {
 }
 
 export const Counter: React.FC<CounterProviderProps & CounterProps> = (props) => {
-  const { doCount = countDownBySeconds, isPaused = false, lowerLimit = 0, precision, startCount = 60000, upperLimit = 360000 } = props;
+  const { doCount = countDownBySeconds, isPaused = false, lowerLimit = 0, onLimitReached = () => {}, onTick = () => {}, precision, startCount = 60000, upperLimit = 360000 } = props;
   return (
-    <div data-testid='DigitalReadout'>
+    <div data-testid='Counter'>
       <CounterProvider
         doCount={doCount}
         isPaused={isPaused}
         lowerLimit={lowerLimit}
+        onLimitReached={onLimitReached}
+        onTick={onTick}
         startCount={startCount}
         upperLimit={upperLimit}
       >

@@ -1,4 +1,4 @@
-import { TimeIncrement } from '../TimeIncrement';
+import { TimeIncrement } from '../types/TimeIncrement';
 import { timeout } from './timeout';
 import { msUnitsFromTimeIncrement } from './transforms/msUnitsFromTimeIncrement';
 

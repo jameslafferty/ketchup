@@ -1,4 +1,4 @@
-import { TimeIncrement } from '../../TimeIncrement';
+import { TimeIncrement } from '../../types/TimeIncrement';
 
 export const msUnitsFromTimeIncrement = (increment: TimeIncrement) => {
   switch (increment) {

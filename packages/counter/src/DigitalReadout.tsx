@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { CounterContext } from './CounterContext';
-import { TimeIncrement } from './TimeIncrement';
+import { TimeIncrement } from './types/TimeIncrement';
 
 const Wrapper = styled.div`
   align-items: center;
