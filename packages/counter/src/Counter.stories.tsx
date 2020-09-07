@@ -4,16 +4,17 @@ import { countDownBySeconds } from './utilities/countDownBySeconds';
 import { countUpBySeconds } from './utilities/countUpBySeconds';
 
 export default {
-  title: 'Counter',
+  title: 'An Airstream Full of Hamburgers',
   component: Counter,
 };
 
-const CounterFunctions: Record<string, (last: number) => Promise<number>> = {
+const CounterFunctions: Record<string, undefined | ((last: number) => Promise<number>)> = {
+  UNDEFINED: undefined,
   COUNT_DOWN_BY_SECONDS: countDownBySeconds,
   COUNT_UP_BY_SECONDS: countUpBySeconds,
 }
 
-export const countdown = ({counter = 'COUNT_DOWN_BY_SECONDS', isPaused = false, lowerLimit = 0, precision = 'ms', startCount = 25, upperLimit = 360000 }) => {
+export const dinerCounterTop = ({counter = 'COUNT_DOWN_BY_SECONDS', isPaused = false, lowerLimit = 0, precision = 'ms', startCount = 25, upperLimit = 360000 }) => {
   return (
     <Counter
       doCount={CounterFunctions[counter]}
@@ -25,15 +26,18 @@ export const countdown = ({counter = 'COUNT_DOWN_BY_SECONDS', isPaused = false, 
   );
 };
 
-countdown.argTypes = {
+dinerCounterTop.argTypes = {
   counter: {
     control: {
       type: 'select',
       options: [
+        'UNDEFINED',
         'COUNT_UP_BY_SECONDS',
         'COUNT_DOWN_BY_SECONDS',
       ],
-      default: 'COUNT_DOWN_BY_SECONDS',
+      default: 'UNDEFINED',
     },
   },
 };
+
+export const holdTheFries = () => <Counter />;

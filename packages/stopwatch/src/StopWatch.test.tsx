@@ -1,25 +1,20 @@
 import { render } from '@testing-library/react';
 import { axe, toHaveNoViolations } from 'jest-axe';
 import React from 'react';
-import { Counter } from './Counter';
+import { StopWatch } from './StopWatch';
 
 expect.extend(toHaveNoViolations);
 
 it('renders a Counter with the correct value', async () => {
-  const doCount = async (number: number) => number;
   const { getByTestId } = render(
-  <Counter
-    doCount={doCount}
-    startCount={25}
-  />
+    <StopWatch />
   );
-  const counter = getByTestId('Counter');
+  const counter = getByTestId('StopWatch');
   expect(counter).toBeTruthy();
-  expect(counter.textContent).toBe('00025000');
 });
 
 it('has no obvious a11y violations', async () => {
-  const { getByTestId } = render(<Counter />);
-  const counter = getByTestId('Counter');
+  const { getByRole } = render(<main><StopWatch /></main>);
+  const counter = getByRole('main');
   expect(await axe(counter.outerHTML)).toHaveNoViolations();
 });

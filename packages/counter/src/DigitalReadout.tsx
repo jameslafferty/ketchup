@@ -37,9 +37,9 @@ const DigitLabel = styled.label`
 `;
 
 const millisecondsToDisplayTime = (milliseconds: number) => {
-  const ms = `${milliseconds % 1000}`;
-  const s = (Math.floor(milliseconds / 1000) % 60).toFixed(0);
-  const m = (Math.floor(milliseconds / (1000 * 60)) % 60).toFixed(0);
+  const ms = `${milliseconds % 1000}`.padStart(3, '0');
+  const s = (Math.floor(milliseconds / 1000) % 60).toFixed(0).padStart(2, '0');
+  const m = (Math.floor(milliseconds / (1000 * 60)) % 60).toFixed(0).padStart(2, '0');
   const h = (Math.floor(milliseconds / (1000 * 60 * 60))).toFixed(0);
   return {
     h,

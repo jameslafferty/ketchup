@@ -14,7 +14,8 @@
     "lerna": "lerna",
     "sb": "sb",
     "storybook": "start-storybook -p 9009",
-    "build-storybook": "build-storybook -c .storybook -o .out"
+    "build-storybook": "build-storybook -c .storybook -o .out",
+    "prepare": "lerna run --stream --sort prepare"
   },
   "workspaces": [
     "packages/*"

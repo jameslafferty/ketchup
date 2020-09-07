@@ -1,0 +1,21 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "sourceMap": true,
+    "allowJs": false,
+    "isolatedModules": true,
+    "noEmit": true
+  },
+  "include": [
+    "src/*.ts",
+    "src/*.tsx", "react-app-env.d.ts", "src/types/TimeIncrement.ts", "src/types/CounterFunction.ts"
+  ],
+  "exclude": [
+    "dist/*",
+    "node_modules/*",
+    "src/*.stories.tsx",
+    "src/*.test.ts",
+    "src/*.test.tsx"
+  ]
+}
