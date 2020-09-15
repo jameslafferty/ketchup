@@ -1,4 +1,4 @@
-import { TimeIncrement } from '../../types/TimeIncrement';
+import { TimeIncrement } from '@ketchupy/glue';
 
 export const msUnitsFromTimeIncrement = (increment: TimeIncrement) => {
   switch (increment) {

@@ -14,12 +14,12 @@ const CounterFunctions: Record<string, undefined | ((last: number) => Promise<nu
   COUNT_UP_BY_SECONDS: countUpBySeconds,
 }
 
-export const dinerCounterTop = ({counter = 'COUNT_DOWN_BY_SECONDS', isPaused = false, lowerLimit = 0, precision = 'ms', startCount = 25, upperLimit = 360000 }) => {
+export const dinerCounterTop = ({ counter = 'COUNT_DOWN_BY_SECONDS', isPaused = false, lowerLimit = 0, precision = 'ms', startCount = 25, upperLimit = 360000 }) => {
   return (
     <Counter
       doCount={CounterFunctions[counter]}
       isPaused={isPaused}
-      precision={precision  as 'ms' | 's' | 'm' | 'h' | undefined}
+      precision={precision as 'ms' | 's' | 'm' | 'h' | undefined}
       startCount={startCount}
       upperLimit={upperLimit}
     />
@@ -41,3 +41,9 @@ dinerCounterTop.argTypes = {
 };
 
 export const holdTheFries = () => <Counter />;
+
+export const sometimesWeHaveASpecial = () => {
+  const Display: React.FC<{ currentCount: Number }> = ({ currentCount }) =>
+    <span>We're at {currentCount}ms, darlin'.</span>;
+  return <Counter display={(props) => <Display {...props} />} />;
+};

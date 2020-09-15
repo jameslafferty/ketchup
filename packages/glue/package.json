@@ -1,7 +1,7 @@
 {
-  "name": "@ketchupy/stop-watch",
+  "name": "@ketchupy/glue",
   "version": "0.0.5",
-  "description": "A stopwatch interface for hurried tomatoes",
+  "description": "Gross, but sometimes a tomato on the go has to stick stuff together",
   "license": "UNLICENSED",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -21,7 +21,7 @@
     "prebuild": "rimraf dist && yarn test:cicd",
     "prepare": "yarn build",
     "test": "react-scripts test",
-    "test:cicd": "cross-env CI=true react-scripts test --env=jsdom-fourteen --coverage"
+    "test:cicd": "cross-env CI=true react-scripts test --env=jsdom-fourteen --coverage --passWithNoTests"
   },
   "devDependencies": {
     "@testing-library/react": "11.0.4",
@@ -29,8 +29,5 @@
     "jest-axe": "^4.0.0",
     "react-scripts": "^3.4.3",
     "typescript": "^4.0.2"
-  },
-  "dependencies": {
-    "@ketchupy/counter": "^0.0.5"
   }
 }

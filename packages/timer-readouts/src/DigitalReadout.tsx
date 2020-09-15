@@ -1,7 +1,6 @@
-import React, { useContext } from 'react';
+import { TimeIncrement } from '@ketchupy/glue';
+import React from 'react';
 import styled from 'styled-components';
-import { CounterContext } from './CounterContext';
-import { TimeIncrement } from './types/TimeIncrement';
 
 const Wrapper = styled.div`
   align-items: center;
@@ -57,8 +56,7 @@ const Digit = (value: string, key: string) => (
   </DigitLabel>
 );
 
-export const DigitalReadout: React.FC<{ precision?: TimeIncrement }> = ({ precision = 'ms' }) => {
-  const { currentCount } = useContext(CounterContext);
+export const DigitalReadout: React.FC<{ currentCount: number, precision?: TimeIncrement }> = ({ currentCount, precision = 'ms' }) => {
   const displayTime = millisecondsToDisplayTime(currentCount); 
   return (
     <Wrapper data-testid='DigitalReadout'>

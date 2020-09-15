@@ -1,11 +1,17 @@
-import React, { useState } from 'react';
+import React, { FormEvent, useState } from 'react';
 
 import { Counter } from '@ketchupy/counter';
 
 export const StopWatch: React.FC = () => {
   const [ isPaused, setIsPaused ] = useState(true);
+  const onSubmit = (event: FormEvent) => {
+    event.preventDefault();
+  };
   return (
-    <div data-testid='StopWatch'>
+    <form
+      data-testid='StopWatch'
+      onSubmit={onSubmit}
+    >
       <button
         disabled={!isPaused}
         onClick={() => setIsPaused(() => false)}
@@ -20,11 +26,7 @@ export const StopWatch: React.FC = () => {
       >
         <span>Pause</span>
       </button>
-      <Counter
-        aria-live='polite'
-        isPaused={isPaused}
-        precision='s'
-      />
-    </div>
+      <Counter isPaused={isPaused} />
+    </form>
   );
 };

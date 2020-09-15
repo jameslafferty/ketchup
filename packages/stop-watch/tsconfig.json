@@ -8,8 +8,8 @@
     "noEmit": true
   },
   "include": [
-    "src/*.ts",
-    "src/*.tsx", "react-app-env.d.ts", "src/types/TimeIncrement.ts", "src/types/CounterFunction.ts"
+    "src/**/*.ts",
+    "src/**/*.tsx"
   ],
   "exclude": [
     "dist/*",

@@ -1,4 +1,4 @@
-import { TimeIncrement } from '../types/TimeIncrement';
+import { TimeIncrement } from '@ketchupy/glue';
 import { timeout } from './timeout';
 import { msUnitsFromTimeIncrement } from './transforms/msUnitsFromTimeIncrement';
 
